@@ -1,0 +1,159 @@
+{
+  "selected_model": "SARIMAX combined",
+  "forecast_origin": "2026-07-01",
+  "training_start": "2011-06-01",
+  "validation_start": "2023-08-01",
+  "validation_end": "2024-07-01",
+  "test_start": "2024-08-01",
+  "test_end": "2026-07-01",
+  "selection": "Mean validation horizon RMSE; complete converged candidates only",
+  "predictor_lag_months": 5,
+  "availability": "Retrospective; release dates unavailable; assumes predictors known after two months",
+  "eligible_candidates": [
+    "Naive",
+    "Seasonal naive",
+    "SARIMA A",
+    "SARIMA B",
+    "SARIMAX exchange",
+    "SARIMAX policy",
+    "SARIMAX M3",
+    "SARIMAX combined"
+  ],
+  "specifications": {
+    "Naive": {
+      "family": "naive",
+      "features": [],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "predictor_lag": 5
+    },
+    "Seasonal naive": {
+      "family": "seasonal_naive",
+      "features": [],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "predictor_lag": 5
+    },
+    "SARIMA A": {
+      "family": "sarima",
+      "features": [],
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "predictor_lag": 5
+    },
+    "SARIMA B": {
+      "family": "sarima",
+      "features": [],
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "predictor_lag": 5
+    },
+    "SARIMAX exchange": {
+      "family": "sarimax",
+      "features": [
+        "exchange_rate"
+      ],
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "predictor_lag": 5
+    },
+    "SARIMAX policy": {
+      "family": "sarimax",
+      "features": [
+        "policy_rate"
+      ],
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "predictor_lag": 5
+    },
+    "SARIMAX M3": {
+      "family": "sarimax",
+      "features": [
+        "m3_growth"
+      ],
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "predictor_lag": 5
+    },
+    "SARIMAX combined": {
+      "family": "sarimax",
+      "features": [
+        "exchange_rate",
+        "policy_rate",
+        "m3_growth"
+      ],
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "predictor_lag": 5
+    }
+  },
+  "production_diagnostics": {
+    "converged": true,
+    "aic": 244.09319603535064,
+    "residual_mean": 0.0063496101013439865,
+    "ljung_box_p_lag12": 0.004458434727329937,
+    "warning_count": 0
+  }
+}

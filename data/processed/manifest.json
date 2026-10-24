@@ -1,0 +1,70 @@
+{
+  "files": [
+    {
+      "file": "Dataset-11995-2018.csv",
+      "sha256": "b02d6827f33ef679121e2fa3b773157977bf9bbb2d3229e3baaaa90d696d815f",
+      "bytes": 4553
+    },
+    {
+      "file": "Dataset-12019-2026.csv",
+      "sha256": "03d91d90472d2af5806261f44f79db91012a62e0f0e2a2f6fd43944ec3216181",
+      "bytes": 1629
+    },
+    {
+      "file": "dcs_srf.xlsx",
+      "sha256": "d4f502ffc57c248e82f9c97726ce91d62cf936e2409abc5ef4dd3a055b870ae7",
+      "bytes": 280249
+    },
+    {
+      "file": "MonetaryPolicyDecisions.xlsx",
+      "sha256": "9837b1f40cc0b59b27193f641a89c962ee70a0c4c3e019a24486fc38eb22f312",
+      "bytes": 76050
+    },
+    {
+      "file": "ms.xls",
+      "sha256": "1f5f98566c016c0ab52197d0c690855bbbe0c88813169747caf22a3f5f3485ad",
+      "bytes": 289280
+    },
+    {
+      "file": "pesodollar.xlsx",
+      "sha256": "077dccd10c75b255b306f3d2973f3b1b43986b549bcff92c0c22dd0e09d66e60",
+      "bytes": 205854
+    }
+  ],
+  "policy_rows_requiring_review": 5,
+  "coverage": {
+    "inflation": {
+      "start": "2010-01-01 00:00:00",
+      "end": "2026-08-01 00:00:00",
+      "missing": 0
+    },
+    "exchange_rate": {
+      "start": "2010-01-01 00:00:00",
+      "end": "2026-08-01 00:00:00",
+      "missing": 0
+    },
+    "m3": {
+      "start": "2010-01-01 00:00:00",
+      "end": "2026-07-01 00:00:00",
+      "missing": 1
+    },
+    "policy_rate": {
+      "start": "2010-01-01 00:00:00",
+      "end": "2026-08-01 00:00:00",
+      "missing": 0
+    },
+    "m3_growth": {
+      "start": "2011-01-01 00:00:00",
+      "end": "2026-07-01 00:00:00",
+      "missing": 13
+    }
+  },
+  "notes": [
+    "User-supplied source files; not independently authenticated.",
+    "Source vintage is the supplied file hash; original release dates are unavailable.",
+    "Policy rate extracted from decision text: review policy_review.csv before research use.",
+    "ms.xls retained for reconciliation; primary M3 comes from DCS level row 25.",
+    "Unemployment not supplied.",
+    "Model experiment ends July 2026; August inflation is available for display."
+  ]
+}

@@ -1,0 +1,13 @@
+.packages/
+.venv/
+.jupyter/
+__pycache__/
+*.log
+notebooks/.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.db-journal
+*.db-wal
+*.db-shm

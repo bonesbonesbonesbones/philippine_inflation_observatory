@@ -1,0 +1,14 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.sql text eol=lf
+*.json text eol=lf
+*.ipynb text eol=lf
+*.csv text eol=lf
+*.ps1 text eol=crlf
+*.xlsx binary
+*.xls binary
+*.db binary
+# Preserve exact dataset bytes so provenance hashes survive a clone.
+data/** -text
+artifacts/** -text
