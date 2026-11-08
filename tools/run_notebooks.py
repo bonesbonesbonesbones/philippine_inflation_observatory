@@ -6,7 +6,8 @@ ROOT = Path(__file__).resolve().parents[1]
 os.environ['JUPYTER_RUNTIME_DIR']=str(ROOT/'.jupyter/runtime')
 os.environ['IPYTHONDIR']=str(ROOT/'.jupyter/ipython')
 Path(os.environ['JUPYTER_RUNTIME_DIR']).mkdir(parents=True,exist_ok=True)
-sys.path.insert(0,str(ROOT/'.packages'))
+if sys.prefix == sys.base_prefix and (ROOT/'.packages').exists():
+    sys.path.insert(0,str(ROOT/'.packages'))
 import nbformat
 from nbclient import NotebookClient
 from jupyter_client.kernelspec import KernelSpecManager
@@ -17,7 +18,8 @@ kernel.mkdir(parents=True,exist_ok=True)
 (kernel/'kernel.json').write_text(__import__('json').dumps({
     'argv':[sys.executable,'-m','ipykernel_launcher','-f','{connection_file}'],
     'display_name':'ELEC4 local Python','language':'python',
-    'env':{'PYTHONPATH':str(ROOT/'.packages')+os.pathsep+str(ROOT),'PYTHONIOENCODING':'utf-8'}}))
+    'env':{'PYTHONPATH':str(ROOT) if sys.prefix != sys.base_prefix else str(ROOT/'.packages')+os.pathsep+str(ROOT),
+           'PYTHONIOENCODING':'utf-8','MPLCONFIGDIR':str(ROOT/'.jupyter/matplotlib')}}))
 manager = KernelSpecManager(kernel_dirs=[str(kernel_root)])
 paths = [ROOT/'notebooks'/name for name in sys.argv[1:]] if len(sys.argv)>1 else sorted((ROOT/'notebooks').glob('*.ipynb'))
 for path in paths:

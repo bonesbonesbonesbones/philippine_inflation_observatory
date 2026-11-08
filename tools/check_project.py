@@ -46,7 +46,7 @@ print('PASS: 199-month primary dataset, source hashes, foreign keys, unique grai
 from streamlit.testing.v1 import AppTest
 app=AppTest.from_file(str(ROOT/'app.py'),default_timeout=60).run()
 assert not app.exception, str(app.exception)
-for page in ['Economic indicators','Model performance','Data explorer','Data architecture','Overview']:
+for page in ['Historical analysis','Economic indicators','Relationship analysis','Model performance','Data explorer','Data architecture','Overview']:
     app.sidebar.radio[0].set_value(page).run()
     assert not app.exception, str(app.exception)
     print('PASS page:',page)
@@ -55,6 +55,6 @@ app.select_slider[0].set_value(3).run()
 app.selectbox[0].set_value('SARIMAX combined').run()
 assert not app.exception,str(app.exception)
 app.sidebar.radio[0].set_value('Data explorer').run()
-app.multiselect[0].set_value(['inflation']).run()
+next(w for w in app.multiselect if w.label=='Indicators').set_value(['inflation']).run()
 assert not app.exception,str(app.exception)
 print('PASS: horizon, model, and indicator-selection interactions.')

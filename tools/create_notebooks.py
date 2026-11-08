@@ -11,6 +11,9 @@ def code(s):
 def save(name,cells):
     p=ROOT/'notebooks'/name
     p.parent.mkdir(exist_ok=True)
+    if p.exists():
+        print('Preserving existing edited notebook:',name)
+        return
     p.write_text(json.dumps({'cells':cells,'metadata':{'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'},'language_info':{'name':'python','version':'3.12'}},'nbformat':4,'nbformat_minor':5},indent=1),encoding='utf-8')
 
 setup = '''
@@ -18,7 +21,7 @@ from pathlib import Path
 import sys, json
 ROOT = Path.cwd() if (Path.cwd()/'src').exists() else Path.cwd().parent
 sys.path.insert(0, str(ROOT))
-if (ROOT/'.packages').exists():
+if sys.prefix == sys.base_prefix and (ROOT/'.packages').exists():
     sys.path.insert(0,str(ROOT/'.packages'))
 import pandas as pd
 import numpy as np

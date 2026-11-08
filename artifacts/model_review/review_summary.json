@@ -1,0 +1,12 @@
+{
+  "winner": "SARIMAX combined",
+  "candidate_count": 8,
+  "primary_months": 199,
+  "effective_months": 182,
+  "validation_targets_per_horizon": 12,
+  "holdout_targets_per_horizon": 24,
+  "holdout_status": "Previously evaluated; not a new untouched assessment",
+  "adequacy": "Review residual diagnostics; validation winner is not proof of adequacy",
+  "web_app_used": false,
+  "database_used": false
+}

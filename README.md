@@ -8,9 +8,13 @@ Use Python 3.12. Create a virtual environment and install `requirements.txt`. Op
 
 Launch the dashboard with `python -m streamlit run app.py`. It reads the normalized database and notebook exports; it never trains models during page navigation. `tools/run_notebooks.py` runs both notebooks noninteractively using the installed Python kernel and saves their executed outputs.
 
-For this workstation, `start.ps1` uses the bundled Python runtime and project-local packages. Launch with PowerShell: `./start.ps1`. To regenerate all notebook outputs: `./start.ps1 -Train`.
+`start.ps1` uses the project's `.venv` environment. Launch with PowerShell: `./start.ps1`. To regenerate all notebook outputs: `./start.ps1 -Train`.
+
+On a new checkout, run `python -m venv .venv`, then `.\.venv\Scripts\python.exe -m pip install -r requirements.txt`. Start the dashboard with `.\.venv\Scripts\python.exe -m streamlit run app.py`. Running `python app.py` directly does not start the Streamlit dashboard. In VS Code, select `.venv` as the interpreter and use the **Run dashboard** debug configuration.
 
 ## Data and modeling contract
+
+The dashboard also includes DengueAware-inspired historical filters, year comparisons, and a Relationship analysis page with Pearson/Spearman correlations, 0–12 month indicator lags, scatter plots, pair counts, and filtered downloads. History, forecasts, indicators, relationships and performance include narrative interpretation. See [relationship-analysis.md](docs/relationship-analysis.md) for the descriptive analysis definitions and limitations. Historical filters do not retrain models or alter fixed evaluation periods.
 
 Read [data-model.md](docs/data-model.md) for the ERD, grain, keys, relationships, feature timing and validation design. The schema in `database/schema.sql` is executable SQLite. SQLite supports this local prototype; migration to the proposal's MySQL environment is not yet implemented.
 
